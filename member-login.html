@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Member Login People Care</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="People care login">
+    <meta name="author" content="People Care">
+    <meta name="keywords" content="People care login">
+
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="login-css/material-design-iconic-font.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login-css/util.css">
+	<link rel="stylesheet" type="text/css" href="login-css/main.css">
+<!--===============================================================================================-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript">
+		function generateCaptcha() {
+			var alpha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+			var i;
+			for (i = 0; i < 4; i++) {
+				var a = alpha[Math.floor(Math.random() * alpha.length)];
+				var b = alpha[Math.floor(Math.random() * alpha.length)];
+				var c = alpha[Math.floor(Math.random() * alpha.length)];
+				var d = alpha[Math.floor(Math.random() * alpha.length)];
+			}
+			var code = a + '' + b + '' + '' + c + '' + d;
+			document.getElementById("mainCaptcha").value = code
+		}
+		function CheckValidCaptcha() {
+			var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+			var string2 = removeSpaces(document.getElementById('txtInput').value);
+			if (string1 == string2) {
+				document.getElementById('success').innerHTML = "";
+				//alert("Form is validated Successfully");
+				return true;
+			}
+			else {
+				document.getElementById('success').innerHTML = "Please enter a valid captcha.";
+				//alert("Please enter a valid captcha.");
+				return false;
+
+			}
+		}
+		function removeSpaces(string) {
+			return string.split(' ').join('');
+		}
+
+		function shailesh() {
+			let x = document.forms["MemberForm"]["captcha"].value;
+			let y = document.forms["MemberForm"]["EnterCaptcha"].value;
+			if (x !== y) {
+				alert("Please Enter correct captcha");
+				return false;
+			}
+		}
+
+	</script>
+</head>
+<body onload="generateCaptcha();">
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/background/chairman\ pcio.gif');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post" name="MemberForm" action="php/member-login.php" onsubmit="return shailesh()">
+					<span class="login100-form-logo">
+						<!-- <i class="zmdi zmdi-landscape"></i> -->
+                        <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+                        <img src="images/resource/care-removebg-preview (1).png" alt="" style="width: 100%;">
+
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Member Log In
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+                        <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<input class="input100" type="text" name="username" placeholder="Username" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" style="display: flex;">
+						<input type="text" id="mainCaptcha" name="captcha" style="background-color: #cfcfcf; padding: 5px;
+                  font-family: Lucida Sans Typewriter;
+                     font-size: 24px; width: 100%;
+					 text-align: center; font-style: italic; color: black;  " readonly="readonly" />
+
+					 <div style="background:#cfcfcf; font-size: 24px;  margin-left: 2px; padding: 5px;"> <i class="fa fa-refresh" aria-hidden="true" id="refresh" onclick="generateCaptcha();"></i> </div>
+					</div>
+					
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" id="txtInput" name="EnterCaptcha" placeholder="Enter Captcha" autocomplete="off" required/>
+						<span class="focus-input100" data-placeholder="&#xf183;"></span>
+						<span id="success" style="color:red"></span>						
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="CheckValidCaptcha();">
+							Login
+						</button>
+					</div>
+                    <div style=" display: flex; margin: auto;">
+                    <div class="text-center p-t-35" style="width: 50%;">
+                        <a class="txt1" href="#">
+							SignUp
+						</a>
+					</div>
+					<div class="text-center p-t-35" style="width: 50%;">
+						<a class="txt1" href="member-forgot-pass.html">
+							Forgot Password?
+						</a>
+					</div>
+                </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

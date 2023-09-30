@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Members SignUp People Care</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="People care login">
+    <meta name="author" content="People Care">
+    <meta name="keywords" content="People care login">
+
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="login-css/material-design-iconic-font.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login-css/util.css">
+	<link rel="stylesheet" type="text/css" href="login-css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/background/chairman\ pcio.gif');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post" action="php/reg.php">
+					<span class="login100-form-logo">
+						<!-- <i class="zmdi zmdi-landscape"></i> -->
+                        <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+                        <img src="images/Round Logo.png" alt="" style="width: 100%;">
+
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Member Sign Up
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+                        <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<input class="input100" type="text" name="username" placeholder="Username / Email" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Phone no.">
+                        <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<input class="input100" type="text" name="phone" placeholder="Mobile Number" required>
+						<span class="focus-input100" data-placeholder="&#xf202;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" id="pass" type="password" name="pass" placeholder=" Create Password" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<input class="input100" id="cpass" type="password" name="cpass" placeholder=" Confirm Password" required onkeyup="validate_password()">
+						<span class="focus-input100" data-placeholder="&#xf190;"></span>
+					</div>
+                    <span id="wrong_pass_alert"></span>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="create" onclick="wrong_pass_alert()">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+    <script>
+
+function validate_password() {
+ 
+ var pass = document.getElementById('pass').value;
+ var confirm_pass = document.getElementById('cpass').value;
+ if (pass != confirm_pass) {
+     document.getElementById('wrong_pass_alert').style.color = 'rgb(255 224 0)';
+     document.getElementById('wrong_pass_alert').innerHTML
+       = '☒ Use same password';
+     document.getElementById('create').disabled = true;
+     document.getElementById('create').style.opacity = (0.4);
+ } else {
+     document.getElementById('wrong_pass_alert').style.color = 'white';
+     document.getElementById('wrong_pass_alert').innerHTML =
+         '🗹 Password Matched';
+     document.getElementById('create').disabled = false;
+     document.getElementById('create').style.opacity = (1);
+ }
+}
+
+function wrong_pass_alert() {
+ if (document.getElementById('pass').value != "" &&
+     document.getElementById('confirm_pass').value != "") {
+     alert("Your response is submitted");
+ } else {
+     alert("Please fill all the fields");
+ }
+}
+
+</script>
+
+</body>
+</html>

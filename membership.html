@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="People Care Membership">
+    <meta name="author" content="PeopleCAre">
+    <meta name="keywords" content="People Care Membership">
+
+    <!-- Title Page-->
+    <title>Membership registration Form</title>
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="membership-css/main.css" rel="stylesheet" media="all">
+    <style>
+        body{
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                   
+                    <h2 class="title">Membership registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="php/membership.php" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="name">Name <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="name" placeholder="Full Name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Phone <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="phone" placeholder="+91 XXXXXXXXXX" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Address <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="address" placeholder="Full Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Occupation <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="occupation" placeholder="Occupation" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Upload Photo <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="file" name="photo" required>
+                                </div>
+                                <div class="label--desc">Upload your photo in jpg or jpeg formate only. Max file size  100 kb</div>
+                            </div>                           
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Upload ID Proof  <span style="color: rgb(238, 42, 37);">*</span></div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="file" name="proof" required>
+                                </div>
+                                <div class="label--desc">Upload your Id proof in Pdf file only. Max file size  500 kb</div>
+                            </div>                           
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" class="btn btn--radius-2 btn--blue-2"  >
+                        </div>
+                        <!-- <div class="form-row">
+                            <div class="name">Upload Photo</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="photo" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    <span class="input-file__info">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your photo in jpg or jpeg formate only. Max file size  100 kb</div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="form-row">
+                            <div class="name">Upload ID Proof</div>
+                            <div class="value">
+                                <div class="input-group js-input-file js-input-file1">
+                                    <input class="input-file input-file1" type="file" name="file_cv" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    <span class="input-file__info input-file__info1">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your Id proof in Pdf file only. Max file size  100 kb</div>
+                            </div>
+                        </div> -->
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <!-- <script src="membership-js/jquery.min.js"></script> -->
+    <!-- <script src="membership-js/jquery.js"></script> -->
+
+
+
+    <!-- Main JS-->
+    <!-- <script src="membership-js/global.js"></script> -->
+
+</body>
+
+</html>

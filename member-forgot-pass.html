@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Member Login People Care</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="People care login">
+	<meta name="author" content="People Care">
+	<meta name="keywords" content="People care login">
+
+	<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="login-css/material-design-iconic-font.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login-css/util.css">
+	<link rel="stylesheet" type="text/css" href="login-css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/background/chairman\ pcio.gif');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" name="forgot" method="post" action="forgot.php"
+					onsubmit="return shailesh() || shailesh2()">
+					<span class="login100-form-logo">
+						<!-- <i class="zmdi zmdi-landscape"></i> -->
+						<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<img src="images/Round Logo.png" alt="" style="width: 100%;">
+
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Forgot Password
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<input class="input100" type="email" name="email" id="email" placeholder="Enter Email" required>
+						<span class="focus-input100" data-placeholder="&#xf262;"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate="Enter otp" style="display: flex;">
+						<input class="input100" type="text" name="otp" id="otp" placeholder="Enter OTP"
+						required>
+						<span class="focus-input100" data-placeholder="&#xf183;"></span>
+					  <div>	<button class="login100-form-btn" id="generate-otp" onclick="generateOTP()">
+							Get OTP
+						</button> </div>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="Newpass" placeholder="New Password"
+							autocomplete="off" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="Confirmpass" placeholder="Confirm Password"
+							autocomplete="off" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+						<span id="success" style="color:red"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function generateOTP() {
+			
+			const email = document.getElementById("email").value;
+			// Generate 4-digit OTP code
+			const otp = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+
+			// Send OTP code to email (you may need to use a server-side script to send the email)
+
+			console.log(`OTP code for ${email}: ${otp}`);
+
+			// Display OTP code in form
+			document.getElementById("otp").value = otp;
+		}
+		// function shailesh() {
+		// 	let x = document.forms["forgot"]["otp"].value;
+		// 	let y = generateOTP();
+		// 	if (x !== y) {
+		// 		alert("Please Enter correct OTP");
+		// 		return false;
+		// }
+		// }
+		function shailesh2() {
+			let p = document.forms["forgot"]["Newpass"].value;
+			let q = document.forms["forgot"]["Confirmpass"].value;
+			if (p !== q) {
+				document.getElementById('success').innerHTML = "Password did not matches.";
+				// alert("Password did not matches");
+				return false;
+			}
+		}  
+	</script>
+</body>
+
+</html>

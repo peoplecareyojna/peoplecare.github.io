@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Employee_login-People Care</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="franchise-login-css/util.css">
+	<link rel="stylesheet" type="text/css" href="franchise-login-css/main.css">
+	<!--===============================================================================================-->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript">
+		function generateCaptcha() {
+			var alpha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+			var i;
+			for (i = 0; i < 4; i++) {
+				var a = alpha[Math.floor(Math.random() * alpha.length)];
+				var b = alpha[Math.floor(Math.random() * alpha.length)];
+				var c = alpha[Math.floor(Math.random() * alpha.length)];
+				var d = alpha[Math.floor(Math.random() * alpha.length)];
+			}
+			var code = a + '' + b + '' + '' + c + '' + d;
+			document.getElementById("mainCaptcha").value = code
+		}
+		function CheckValidCaptcha() {
+			var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+			var string2 = removeSpaces(document.getElementById('txtInput').value);
+			if (string1 == string2) {
+				document.getElementById('success').innerHTML = "";
+				//alert("Form is validated Successfully");
+				return true;
+			}
+			else {
+				document.getElementById('success').innerHTML = "Please enter a valid captcha.";
+				//alert("Please enter a valid captcha.");
+				return false;
+
+			}
+		}
+		function removeSpaces(string) {
+			return string.split(' ').join('');
+		}
+
+		function shailesh() {
+			let x = document.forms["EmployeeForm"]["captcha"].value;
+			let y = document.forms["EmployeeForm"]["EnterCaptcha"].value;
+			if (x !== y) {
+				alert("Please Enter correct captcha");
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body onload="generateCaptcha();">
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(/images/background/computer\ b.jpg);">
+					<span class="login100-form-title-1">
+						Employee <br> Sign In
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" name="EmployeeForm" onsubmit="return shailesh()" action="php/employee-login.php" method="post">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="username" placeholder="Enter username" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password" required>
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input m-b-18" style="border: none ; display: flex;">
+						<input type="text" id="mainCaptcha" name="captcha" style="background-color: #e1e0e0; padding: 5px;
+                  font-family: Lucida Sans Typewriter;
+                     font-size: 24px; width: 100%;
+					 text-align: center; font-style: italic;  " readonly="readonly" />
+						<div style="background:#e1e0e0; font-size: 24px;  margin-left: 2px; padding: 5px;"> <i
+								class="fa fa-refresh" aria-hidden="true" id="refresh" onclick="generateCaptcha();"></i>
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="mainCaptcha">
+						<span class="label-input100">Captcha</span>
+						<input class="input100" type="text" id="txtInput" name="EnterCaptcha" placeholder="Enter Captcha" autocomplete="off"
+							data-validate="mainCaptcha==txtInput" required />
+						<span class="focus-input100"></span>
+						<span id="success" style="color:red"></span>
+
+					</div>
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+
+							<input type="checkbox"> <span style="color: #808080; font-size: 15px;"> Remember me </span>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<input type="submit" value="Login" class="login100-form-btn" onclick="CheckValidCaptcha();"
+							required>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
